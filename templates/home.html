@@ -1,57 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <title>Gopal Mahato</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <style>
-        h1 {
-            font-family: roboto;
-            font-size: 40px;
-            font-weight: normal;
-            color: gray;
-            text-align: center;
-        }
-        #banner {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-        h2 {
-            font-family: roboto;
-            font-size: 33;
-            color: rgb(100,100,100);
-            text-align: center;
-            font-weight: normal;
-        }
-    .p1 {
-        font-family: roboto;
-        color: rgb(80,80,80);
-    }    
-    .container1 {
-        max-width: 720px;
-        margin: 0 auto;
-    }
+      #banner {
+        height: 360px;
+        width: 100%;
+        object-fit:cover;
+        margin-bottom: 16px;
+      }
     </style>
-    <title>Jovian Careers</title>
-</head>
-<body>
-    <div class="container1">
-        <h1>
-            Jovian Careers
-        </h1>
-        <img id="banner"  src="static/banner.jpg" alt="career growth image" title="Your Future Depends on what you do" width="384" height="256.6">
-        <h2>About Jovian</h2>
-        <p class="p1">
-            This is Just a demo text <br>
-            I believe that <strong> Software Engineers </strong> have the power to change the world. We can create Software that improves people's lives, solves complex problems, and makes the world a better place. I am excited to be a part of this profession, and I am committed to using my skills to make a positive impact on the world.
-        </p>
-        <h2>Open Position</h2>
-        <p class="p1"> 
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore asperiores quasi maiores, atque et quis sunt ut tempore facere sint, magnam ipsam dolores vel illum est iste aut, ducimus nostrum.
-        </p>
-        <div style="text-align: center;">
-            <button class="contact">Contact Us</button>
-        </div>    
-    </div> 
-</body>
+  </head>
+  <body>
+    <nav class="navbar shadow-sm fixed-top bg-white">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img style="border-radius: 50px;" src="/static/gopal_main.jpg" alt="" width="30" height="30" class="d-inline-block align-text-top">Gopal Mahato
+          </a>
+        </div>
+      </nav>
+      <div style="height:56px"></div>
+    <img class="img-fluid" id="banner" src="static/career.jpeg" >
+    <div class="container">
+      <h1 class="text-center mt-2 mb-4">
+        Gopal Mahato
+      </h1>
+      <div class="row" style="margin-bottom:32px">
+        <div class="col-md-6">
+      <p class="lead">
+        <strong>Welcome to my tech corner!</strong>
+        I’m passionate about software engineering, machine learning, artificial intelligence, and all things tech. Here, I share insights, tutorials, and practical knowledge about building software, exploring AI innovations, and leveraging technology to solve real-world problems. Whether you’re a beginner or a tech enthusiast, you’ll find resources, discussions, and ideas to help you grow and stay updated in the ever-evolving world of technology.
+      </p>
+        </div>
+        <div class="d-none d-md-block col-md-6">
+        <img src="/static/people.avif" style="height:320px;border-radius:4px;">
+        </div>
+      </div>
+      <h2 class="text-center mt-2 mb-4">Open Positions</h2>
+      <div>
+        {% for job in jobs %}
+        <div class="border-bottom row" style="margin-bottom:16px;padding-bottom:8px;">
+            <div class="col-10">
+              <h4 
+                style="color:rgb(120,120,120); margin-bottom:4px;">
+                {{job['title']}}
+              </h4>
+              <div>
+                <b>Location:</b> {{job['location']}}
+              </div>
+              {% if 'salary' in job %}
+              <div>
+                <b>Salary:</b> {{job['salary']}}
+              </div>
+              {% endif %}
+            </div>
+            <div class="col-2 padding-right:16px">
+              <a type="button" class="btn btn-outline-primary float-right align-middle" >Apply</a>
+            </div> 
+          </div>
+        {% endfor %}
+      </div>
+      <div class="text-center">
+      <a class="btn btn-primary btn-lg">Contact Us</a>
+      </div>
+    </div>
+    <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a  target="_blank" href="https://www.facebook.com/profile.php?id=100059420165404" class="nav-link px-2 text-muted">facebook</a></li>
+            <li class="nav-item"><a  target="_blank" href="https://github.com/GopalMahato2026" class="nav-link px-2 text-muted">github</a></li>
+          </ul>
+          <p class="text-center text-muted">&copy; 2025 Gopal, Inc</p>
+        </footer>
+    </div>
+  </body>
 </html>
